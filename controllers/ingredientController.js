@@ -46,3 +46,10 @@ exports.getDeleteingredients = (req, res) => {
 			res.redirect('/')
 		});
 };
+
+exports.getApiingredients = (req, res) => {
+	Ingredient.findOne({ _id: req.params.id })
+	 .then(ingredient => {
+		 res.json(ingredient)
+	 })
+}
