@@ -9,5 +9,6 @@ router.get('/', ingredientController.getIngredients);
 router.post('/', ingredientController.getNewingredients);
 router.get('/ingredients/:id/edit', ingredientController.getEditingredients);
 router.post('/ingredients/:id/edit', ingredientController.postEditingredients);
+router.get('/ingredients/:id/delete', ingredientController.getDeleteingredients);
 
 module.exports = router;

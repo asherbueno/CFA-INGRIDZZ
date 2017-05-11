@@ -39,3 +39,10 @@ exports.postEditingredients = (req, res) => {
 			res.redirect('/')
 		})
 };
+
+exports.getDeleteingredients = (req, res) => {
+	Ingredient.findOne({ _id: req.params.id })
+    .remove((err, data) => {
+			res.redirect('/')
+		});
+};
