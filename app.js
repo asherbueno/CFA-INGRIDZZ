@@ -12,6 +12,14 @@ var mongoose = require('mongoose');
 
 var app = express();
 
+
+//jsonwebtoken
+const authApi = require('./middleware/authApi');
+
+var jwt = require('jsonwebtoken');
+var token = jwt.sign({ email: 'takahirosuzuki.m010@gmail.com' }, 'secretcode');
+console.log(token);
+
 // database is called recipes
 mongoose.connect('mongodb://localhost/recipes');
 const { connection: db } = mongoose;
@@ -35,6 +43,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+//jsonwebtoken
+app.use('/api*', authApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
