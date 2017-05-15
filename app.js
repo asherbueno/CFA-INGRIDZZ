@@ -26,15 +26,17 @@ console.log(token);
 // const { connection: db } = mongoose;
 
 
-mongoose.connect(process.env.MONGOLAB_URI, function (error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-});
-// #to activate upper mongolab db, comment out below
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', () => {
-// 	console.log('connected to recipe database')
+mongoose.connect(process.env.MONGOLAB_URI);//, function (error) {
+  const { connection: db } = mongoose;
+//     if (error) console.error(error);
+//     else console.log('mongo connected');
 // });
+
+// #to activate upper mongolab db, comment out below
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+	console.log('connected to recipe database')
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
