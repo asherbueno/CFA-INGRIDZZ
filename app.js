@@ -21,8 +21,14 @@ var token = jwt.sign({ email: 'takahirosuzuki.m010@gmail.com' }, 'secretcode');
 console.log(token);
 
 // database is called recipes
-mongoose.connect('mongodb://localhost/recipes');
-const { connection: db } = mongoose;
+// mongoose.connect('mongodb://localhost/recipes');
+// const { connection: db } = mongoose;
+
+mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
+
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
