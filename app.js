@@ -30,10 +30,10 @@ mongoose.connect(process.env.MONGOLAB_URI, function (error) {
 });
 
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-	console.log('connected to recipe database')
-});
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', () => {
+// 	console.log('connected to recipe database')
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
