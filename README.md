@@ -13,9 +13,9 @@
    I did with "node start", so localhost was working, but my heroku was not not working, took me days to find out the error.  
    * http://stackoverflow.com/questions/30991736/heroku-procfile-running-npm-start
 
-# JsonWebtoken set up  
- * Jsonwebtoken should be set up before index routing.  
-      jsonwebtoken
-      app.use('/ingredients/api*', authApi);
-      app.use('/', index);
-      app.use('/users', users);  
+ * JsonWebtoken set up  
+   Jsonwebtoken should be set up before index routing.  
+      jsonwebtoken  
+      app.use('/ingredients/api*', authApi);  
+      app.use('/', index);  
+      app.use('/users', users);    
