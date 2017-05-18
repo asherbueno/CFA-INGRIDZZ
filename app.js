@@ -69,11 +69,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//jsonwebtoken
+app.use('/ingredients/api*', authApi);
 app.use('/', index);
 app.use('/users', users);
 
-//jsonwebtoken
-app.use('/api*', authApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
