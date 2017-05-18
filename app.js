@@ -20,19 +20,11 @@ var jwt = require('jsonwebtoken');
 var token = jwt.sign({ email: 'ash3rbueno@gmail.com' }, 'secretcode');
 console.log(token);
 
-// #to activate below mongolab db, comment out
-// database is called recipes
-// mongoose.connect('mongodb://localhost/recipes');
-// const { connection: db } = mongoose;
 
 
-mongoose.connect(process.env.MONGOLAB_URI);//, function (error) {
+mongoose.connect(process.env.MLAB);
   const { connection: db } = mongoose;
-//     if (error) console.error(error);
-//     else console.log('mongo connected');
-// });
 
-// #to activate upper mongolab db, comment out below
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
 	console.log('connected to recipe database')
