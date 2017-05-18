@@ -17,7 +17,7 @@ var app = express();
 const authApi = require('./middleware/authApi');
 
 var jwt = require('jsonwebtoken');
-var token = jwt.sign({ email: 'takahirosuzuki.m010@gmail.com' }, 'secretcode');
+var token = jwt.sign({ email: 'ash3rbueno@gmail.com' }, 'secretcode');
 console.log(token);
 
 // #to activate below mongolab db, comment out
