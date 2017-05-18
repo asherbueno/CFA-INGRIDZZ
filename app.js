@@ -41,7 +41,24 @@ db.once('open', () => {
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-var portTemp = normalizePort(process.env.PORT || '3000');
+
+
+function normalizePort1(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+var portTemp = normalizePort1(process.env.PORT || '3000');
 console.log(`listen PORT is ${portTemp}`)
 
 // uncomment after placing your favicon in /public
