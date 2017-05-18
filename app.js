@@ -93,4 +93,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+console.log("In app js");
+
 module.exports = app;
